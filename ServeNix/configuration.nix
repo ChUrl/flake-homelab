@@ -80,11 +80,26 @@
     ];
 
     programs = {
+      fish = {
+        enable = true;
+      };
+
+      git = {
+        enable = true;
+        userEmail = "christoph.urlacher@protonmail.com";
+        userName = "Christoph Urlacher";
+      };
+
       keychain = {
         enable = true;
         enableFishIntegration = true;
         agents = ["ssh"];
         keys = ["id_ed25519"];
+      };
+
+      starship = {
+        enable = true;
+        enableFishIntegration = true;
       };
     };
 
@@ -116,11 +131,10 @@
   ];
 
   programs = {
-    fish.enable = true;
     firejail.enable = true;
+    fish.enable = true;
     git.enable = true;
     neovim.enable = true;
-    starship.enable = true;
     # fuse.userAllowOther = true;
   };
 
