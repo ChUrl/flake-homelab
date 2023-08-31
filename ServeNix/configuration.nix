@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Bootloader.
@@ -72,6 +73,24 @@
     packages = with pkgs; [];
   };
 
+  home-manager.users.christoph = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      lazygit
+      keychain
+    ];
+
+    programs = {
+      keychain = {
+        enable = true;
+        enableFishIntegration = true;
+        agents = ["ssh"];
+        keys = ["id_ed25519"];
+      };
+    };
+
+    home.stateVersion = "23.05";
+  };
+
   virtualisation = {
     docker = {
       enable = true;
@@ -94,7 +113,6 @@
     wget
     helix
     git
-    lazygit
   ];
 
   programs = {
