@@ -17,6 +17,21 @@
     loader.grub.useOSProber = true;
   };
 
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      open = false;
+      nvidiaSettings = false;
+    };
+  };
+
   networking.hostName = "servenix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -106,12 +121,13 @@
     xserver = {
       layout = "us";
       xkbVariant = "altgr-intl";
+      videoDrivers = ["nvidia"];
     };
 
     # Enable the OpenSSH daemon.
-    services.openssh.enable = true;
+    openssh.enable = true;
 
-    npt.enable = true;
+    ntp.enable = true;
     qemuGuest.enable = true;
   };
 
