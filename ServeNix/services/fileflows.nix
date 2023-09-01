@@ -26,6 +26,7 @@
 
     environment = {
       TZ = "Europe/Berlin";
+      NVIDIA_VISIBLE_DEVICES = "all";
     };
 
     extraOptions = [

@@ -25,6 +25,7 @@
       PUID = "3000";
       PGID = "3000";
       TZ = "Europe/Berlin";
+      NVIDIA_VISIBLE_DEVICES = "all";
     };
 
     extraOptions = [
