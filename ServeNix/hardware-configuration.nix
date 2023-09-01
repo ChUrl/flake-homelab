@@ -13,10 +13,39 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/2d1b1f62-f008-4562-906e-5a63d854b18b";
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/2d1b1f62-f008-4562-906e-5a63d854b18b";
       fsType = "ext4";
     };
+    
+    "/media/Movie" = {
+      device = "192.168.86.100:/mnt/WD Blue Stripe 2T/Movie";
+      fsType = "nfs";
+    };
+    
+    "/media/Show" = {
+      device = "192.168.86.100:/mnt/WD Blue Stripe 2T/Show";
+      fsType = "nfs";
+    };
+    
+    "/media/Music" = {
+      device = "192.168.86.100:/mnt/WD Blue Stripe 2T/Music";
+      fsType = "nfs";
+    };
+    
+    "/media/Video" = {
+      device = "192.168.86.100:/mnt/WD Blue Stripe 2T/Video";
+      fsType = "nfs";
+    };
+    
+    "/media/Picture" = {
+      device = "192.168.86.100:/mnt/WD Blue Stripe 2T/Picture";
+      fsType = "nfs";
+    };
+  };
+
+  
 
   swapDevices = [ ];
 
