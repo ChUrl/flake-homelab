@@ -83,7 +83,7 @@
   users.users.christoph = {
     isNormalUser = true;
     description = "Christoph";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.fish;
     packages = with pkgs; [];
   };
@@ -95,6 +95,7 @@
       alejandra
       nnn
       busybox
+      glances
     ];
 
     programs = {
@@ -129,10 +130,10 @@
       enable = true;
       autoPrune.enable = true;
       enableNvidia = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
+      # rootless = {
+      #   enable = true;
+      #   setSocketVariable = true;
+      # };
     };
     oci-containers.backend = "docker";
   };

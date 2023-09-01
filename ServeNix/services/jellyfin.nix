@@ -29,6 +29,7 @@
 
     extraOptions = [
       # "--restart=always" # Conflicts with NixOS' default of using --rm
+      "--runtime=nvidia"
     ];
   };
 }

@@ -30,6 +30,8 @@
 
     extraOptions = [
       # "--restart=always" # Conflicts with NixOS' default of using --rm
+      # "--gpus device=0" # This only works when I start the container using sudo, but not from the systemd service?
+      "--runtime=nvidia" # Older option but seems to work
     ];
   };
 }
