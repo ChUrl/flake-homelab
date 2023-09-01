@@ -26,7 +26,6 @@
     };
 
     extraOptions = [
-      # "--restart=always" # Conflicts with NixOS' default of using --rm
       "--cap-add=NET_ADMIN"
       "--cap-add=SYS_MODULE"
     ];

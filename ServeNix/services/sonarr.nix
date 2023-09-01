@@ -29,8 +29,6 @@
       TZ = "Europe/Berlin";
     };
 
-    extraOptions = [
-      # "--restart=always" # Conflicts with NixOS' default of using --rm
-    ];
+    extraOptions = [];
   };
 }
