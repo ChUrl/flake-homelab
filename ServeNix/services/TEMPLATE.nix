@@ -1,6 +1,9 @@
-{config, lib, pkgs, ...}:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation.oci-containers.containers.NAME = {
     image = "";
     autoStart = true;

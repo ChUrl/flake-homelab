@@ -1,6 +1,9 @@
-{config, lib, pkgs, ...}:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation.oci-containers.containers.jellyseerr = {
     image = "fallenbagel/jellyseerr:latest";
     autoStart = true;

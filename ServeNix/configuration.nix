@@ -1,29 +1,30 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      <home-manager/nixos>
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    <home-manager/nixos>
 
-      # Include Services
-      ./services/fileflows.nix
-      ./services/homepage.nix
-      ./services/hydra.nix
-      ./services/jellyfin.nix
-      ./services/jellyseerr.nix
-      ./services/portainer.nix
-      ./services/prowlarr.nix
-      ./services/radarr.nix
-      ./services/sabnzbd.nix
-      ./services/sonarr.nix
-      ./services/stash.nix
-      ./services/wireguard_vps.nix
-    ];
+    # Include Services
+    ./services/fileflows.nix
+    ./services/homepage.nix
+    ./services/hydra.nix
+    ./services/jellyfin.nix
+    ./services/jellyseerr.nix
+    ./services/portainer.nix
+    ./services/prowlarr.nix
+    ./services/radarr.nix
+    ./services/sabnzbd.nix
+    ./services/sonarr.nix
+    ./services/stash.nix
+    ./services/wireguard_vps.nix
+  ];
 
   # Bootloader.
   boot = {
@@ -87,7 +88,7 @@
     packages = with pkgs; [];
   };
 
-  home-manager.users.christoph = { pkgs, ... }: {
+  home-manager.users.christoph = {pkgs, ...}: {
     home.packages = with pkgs; [
       lazygit
       keychain
@@ -142,7 +143,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     helix
     git

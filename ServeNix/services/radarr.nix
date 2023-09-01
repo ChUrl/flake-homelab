@@ -1,6 +1,9 @@
-{config, lib, pkgs, ...}:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation.oci-containers.containers.radarr = {
     image = "linuxserver/radarr:latest";
     autoStart = true;

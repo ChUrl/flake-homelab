@@ -1,6 +1,9 @@
-{config, lib, pkgs, ...}:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation.oci-containers.containers.hydra = {
     image = "linuxserver/nzbhydra2:latest";
     autoStart = true;

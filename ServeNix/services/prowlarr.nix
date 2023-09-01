@@ -1,6 +1,9 @@
-{config, lib, pkgs, ...}:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation.oci-containers.containers.prowlarr = {
     image = "linuxserver/prowlarr:latest";
     autoStart = true;

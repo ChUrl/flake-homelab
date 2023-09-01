@@ -1,6 +1,9 @@
-{config, lib, pkgs, ...}:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation.oci-containers.containers.sabnzbd = {
     image = "linuxserver/sabnzbd:latest";
     autoStart = true;

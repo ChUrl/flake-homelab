@@ -1,6 +1,9 @@
-{config, lib, pkgs, ...}:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   virtualisation.oci-containers.containers.homepage = {
     image = "ghcr.io/benphelps/homepage:latest";
     autoStart = true;
