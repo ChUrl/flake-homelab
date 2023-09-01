@@ -11,7 +11,18 @@
       <home-manager/nixos>
 
       # Include Services
+      ./services/fileflows.nix
+      ./services/homepage.nix
+      ./services/hydra.nix
+      ./services/jellyfin.nix
+      ./services/jellyseerr.nix
       ./services/portainer.nix
+      ./services/prowlarr.nix
+      ./services/radarr.nix
+      ./services/sabnzbd.nix
+      ./services/sonarr.nix
+      ./services/stash.nix
+      ./services/wireguard_vps.nix
     ];
 
   # Bootloader.
@@ -81,6 +92,8 @@
       lazygit
       keychain
       alejandra
+      nnn
+      busybox
     ];
 
     programs = {
@@ -120,6 +133,7 @@
         setSocketVariable = true;
       };
     };
+    oci-containers.backend = "docker";
   };
 
   # Allow unfree packages
@@ -167,11 +181,17 @@
     qemuGuest.enable = true;
   };
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [];
-  networking.firewall.allowedUDPPorts = [];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
+  networking.firewall = {
+    # Open ports in the firewall.
+    allowedTCPPorts = [];
+    allowedUDPPorts = [];
+    # Or disable the firewall altogether.
+    enable = true;
+
+    trustedInterfaces = [
+      "docker0"
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
