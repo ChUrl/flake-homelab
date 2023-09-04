@@ -17,6 +17,7 @@
     ./services/hydra.nix
     ./services/jellyfin.nix
     ./services/jellyseerr.nix
+    ./services/pihole.nix
     ./services/portainer.nix
     ./services/prowlarr.nix
     ./services/radarr.nix
@@ -42,7 +43,7 @@
 
     nvidia = {
       modesetting.enable = true;
-      powerManagement.enable = true;
+      powerManagement.enable = false; # Experimental option, maybe this is the reason fileflows fails after some time?
       open = false;
       nvidiaSettings = false;
     };
@@ -185,8 +186,16 @@
 
   networking.firewall = {
     # Open ports in the firewall.
-    allowedTCPPorts = [];
-    allowedUDPPorts = [];
+    allowedTCPPorts = [
+      # PiHole requires these ports, as it's running in --net=host mode
+      53
+      80
+    ];
+    allowedUDPPorts = [
+      # PiHole requires these ports, as it's running in --net=host mode
+      53
+      67 # PiHole DHCP
+    ];
     # Or disable the firewall altogether.
     enable = true;
 
