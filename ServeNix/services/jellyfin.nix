@@ -29,7 +29,7 @@
     };
 
     extraOptions = [
-      "--runtime=nvidia"
+      # "--runtime=nvidia" # Disable for now, testing if this conflicts with fileflows
     ];
   };
 }
