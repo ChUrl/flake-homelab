@@ -47,6 +47,11 @@
       device = "192.168.86.100:/mnt/WD Blue Stripe 2T/Picture";
       fsType = "nfs";
     };
+
+    "/media/Usenet" = {
+      device = "192.168.86.100:/mnt/WD Blue Stripe 2T/Usenet";
+      fsType = "nfs";
+    };
   };
 
   swapDevices = [];
