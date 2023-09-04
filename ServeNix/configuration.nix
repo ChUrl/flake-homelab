@@ -24,7 +24,8 @@
     ./services/sabnzbd.nix
     ./services/sonarr.nix
     ./services/stash.nix
-    ./services/wireguard_vps.nix
+    # ./services/tdarr.nix
+    # ./services/wireguard_vps.nix
   ];
 
   # Bootloader.
