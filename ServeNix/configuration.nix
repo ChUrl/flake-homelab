@@ -17,6 +17,7 @@
     ./services/hydra.nix
     ./services/jellyfin.nix
     ./services/jellyseerr.nix
+    # ./services/nextcloud.nix
     ./services/pihole.nix
     ./services/portainer.nix
     ./services/prowlarr.nix
@@ -24,7 +25,7 @@
     ./services/sabnzbd.nix
     ./services/sonarr.nix
     ./services/stash.nix
-    # ./services/tdarr.nix
+    ./services/whats-up-docker.nix
     # ./services/wireguard_vps.nix
   ];
 
@@ -33,6 +34,15 @@
     loader.grub.enable = true;
     loader.grub.device = "/dev/sda";
     loader.grub.useOSProber = true;
+
+    # NOTE: I think this needs a separate EFI partition?
+    # loader.systemd-boot = {
+    #   enable = true;
+    #   configurationLimit = 5;
+    #   editor = false;
+    #   # canTouchEfiVariables = true;
+    #   # efiSysMountPoint = "/boot";
+    # };
   };
 
   hardware = {
@@ -50,15 +60,26 @@
     };
   };
 
-  networking.hostName = "servenix"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
+    hostName = "servenix"; # Define your hostname.
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    # Configure network proxy if necessary
+    # proxy.default = "http://user:password@proxy:port/";
+    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+    # Enable networking
+    networkmanager.enable = true;
+
+    interfaces.ens18.ipv4.addresses = [{
+      address = "192.168.86.25";
+      prefixLength = 24;
+    }];
+    defaultGateway = "192.168.86.5";
+    nameservers = [
+      "127.0.0.1"
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -98,6 +119,8 @@
       nnn
       busybox
       glances
+
+      docker-compose
     ];
 
     programs = {
@@ -177,6 +200,11 @@
       xkbVariant = "altgr-intl";
       videoDrivers = ["nvidia"];
     };
+
+    # Trims the journal if it gets too large
+    journald.extraConfig = ''
+      SystemMaxUse=50M
+    '';
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
