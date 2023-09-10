@@ -26,7 +26,7 @@
     environment = {
       TZ = "Europe/Berlin";
       # WEBPASSWORD = "";
-      FTLCONF_LOCAL_IPV4 = "192.168.86.105";
+      FTLCONF_LOCAL_IPV4 = "192.168.86.25";
     };
 
     extraOptions = [

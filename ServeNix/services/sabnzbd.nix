@@ -8,7 +8,9 @@
     image = "linuxserver/sabnzbd:latest";
     autoStart = true;
 
-    dependsOn = [];
+    dependsOn = [
+      "pihole"
+    ];
 
     ports = [
       "8080:8080"

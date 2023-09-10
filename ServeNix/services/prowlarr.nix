@@ -8,7 +8,9 @@
     image = "linuxserver/prowlarr:latest";
     autoStart = true;
 
-    dependsOn = [];
+    dependsOn = [
+      "pihole"
+    ];
 
     ports = [
       "9696:9696"

@@ -8,7 +8,9 @@
     image = "stashapp/stash:latest";
     autoStart = true;
 
-    dependsOn = [];
+    dependsOn = [
+      "pihole"
+    ];
 
     ports = [
       "9999:9999"
@@ -30,8 +32,12 @@
       STASH_GENERATED = "/generated/";
       STASH_METADATA = "/metadata/";
       STASH_STASH = "/data/";
+      # NVIDIA_VISIBLE_DEVICES = "all";
+      # NVIDIA_DRIVER_CAPABILITIES = "all";
     };
 
-    extraOptions = [];
+    extraOptions = [
+      # "--gpus=all"
+    ];
   };
 }

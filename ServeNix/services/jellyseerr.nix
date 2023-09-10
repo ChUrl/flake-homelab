@@ -9,6 +9,7 @@
     autoStart = true;
 
     dependsOn = [
+      "pihole"
       "sonarr"
       "radarr"
       "jellyfin"

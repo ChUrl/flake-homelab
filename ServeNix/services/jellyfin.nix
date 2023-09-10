@@ -8,7 +8,9 @@
     image = "linuxserver/jellyfin:latest";
     autoStart = true;
 
-    dependsOn = [];
+    dependsOn = [
+      "pihole"
+    ];
 
     ports = [
       "8096:8096"
@@ -25,11 +27,12 @@
       PUID = "3000";
       PGID = "3000";
       TZ = "Europe/Berlin";
-      NVIDIA_VISIBLE_DEVICES = "all";
+      # NVIDIA_VISIBLE_DEVICES = "all";
+      # NVIDIA_DRIVER_CAPABILITIES = "all";
     };
 
     extraOptions = [
-      # "--runtime=nvidia" # Disable for now, testing if this conflicts with fileflows
+      # "--gpus=all"
     ];
   };
 }

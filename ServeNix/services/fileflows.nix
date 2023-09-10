@@ -8,7 +8,9 @@
     image = "revenz/fileflows:latest";
     autoStart = true;
 
-    dependsOn = [];
+    dependsOn = [
+      "pihole"
+    ];
 
     ports = [
       "5000:5000"
@@ -27,11 +29,11 @@
     environment = {
       TZ = "Europe/Berlin";
       NVIDIA_VISIBLE_DEVICES = "all";
+      NVIDIA_DRIVER_CAPABILITIES = "all";
     };
 
     extraOptions = [
-      # "--gpus device=0" # This only works when I start the container using sudo, but not from the systemd service?
-      "--runtime=nvidia" # Older option but seems to work
+      "--gpus=all"
     ];
   };
 }

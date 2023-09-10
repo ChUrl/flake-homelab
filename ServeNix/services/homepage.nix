@@ -8,7 +8,9 @@
     image = "ghcr.io/benphelps/homepage:latest";
     autoStart = true;
 
-    dependsOn = [];
+    dependsOn = [
+      "pihole"
+    ];
 
     ports = [
       "3000:3000"

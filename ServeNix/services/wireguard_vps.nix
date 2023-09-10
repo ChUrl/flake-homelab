@@ -8,7 +8,9 @@
     image = "linuxserver/wireguard:latest";
     autoStart = true;
 
-    dependsOn = [];
+    dependsOn = [
+      "pihole"
+    ];
 
     ports = [
       "51820:51820"

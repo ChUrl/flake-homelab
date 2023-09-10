@@ -8,7 +8,9 @@
     image = "";
     autoStart = true;
 
-    dependsOn = [];
+    dependsOn = [
+      "pihole"
+    ];
 
     ports = [];
 
@@ -18,8 +20,12 @@
       PUID = "1000";
       PGID = "1000";
       TZ = "Europe/Berlin";
+      # NVIDIA_VISIBLE_DEVICES = "all";
+      # NVIDIA_DRIVER_CAPABILITIES = "all";
     };
 
-    extraOptions = [];
+    extraOptions = [
+      # "--gpus=all"
+    ];
   };
 }
