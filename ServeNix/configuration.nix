@@ -12,12 +12,14 @@
     <home-manager/nixos>
 
     # Include Services
+    ./services/authelia.nix
     ./services/fileflows.nix
     ./services/homepage.nix
     ./services/hydra.nix
     ./services/jellyfin.nix
     ./services/jellyseerr.nix
     # ./services/nextcloud.nix
+    ./services/nginx-proxy-manager.nix
     ./services/pihole.nix
     ./services/portainer.nix
     ./services/prowlarr.nix
@@ -26,7 +28,7 @@
     ./services/sonarr.nix
     ./services/stash.nix
     ./services/whats-up-docker.nix
-    # ./services/wireguard_vps.nix
+    ./services/wireguard-vps.nix
   ];
 
   # Bootloader.
@@ -79,6 +81,27 @@
     nameservers = [
       "127.0.0.1"
     ];
+  };
+
+  systemd.services.init-behind-nginx-docker-network = {
+    description = "Create a docker network bridge for all services behind nginx-proxy-manager.";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+  
+    serviceConfig.Type = "oneshot";
+    script = let
+      dockercli = "${config.virtualisation.docker.package}/bin/docker";
+      network = "behind-nginx";
+    in ''
+      # Put a true at the end to prevent getting non-zero return code, which will
+      # crash the whole service.
+      check=$(${dockercli} network ls | grep ${network} || true)
+      if [ -z "$check" ]; then
+        ${dockercli} network create ${network}
+      else
+        echo "${network} already exists in docker"
+      fi
+    '';
   };
 
   # Set your time zone.
