@@ -4,12 +4,12 @@
   pkgs,
   ...
 }: {
-  virtualisation.oci-containers.containers.wireguard_vps = {
+  virtualisation.oci-containers.containers.wireguard-vps = {
     image = "linuxserver/wireguard:latest";
     autoStart = true;
 
     dependsOn = [
-      "pihole"
+      # "pihole"
     ];
 
     ports = [
@@ -30,6 +30,7 @@
     extraOptions = [
       "--cap-add=NET_ADMIN"
       "--cap-add=SYS_MODULE"
+      # "--net=behind-nginx"
     ];
   };
 }
