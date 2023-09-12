@@ -9,7 +9,7 @@
     autoStart = true;
 
     dependsOn = [
-      "pihole"
+      # "pihole"
     ];
 
     ports = [];
@@ -26,6 +26,7 @@
 
     extraOptions = [
       # "--gpus=all"
+      "--network=behind-nginx"
     ];
   };
 }

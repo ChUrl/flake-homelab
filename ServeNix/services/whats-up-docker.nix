@@ -9,11 +9,11 @@
     autoStart = true;
 
     dependsOn = [
-      "pihole"
+      # "pihole"
     ];
 
     ports = [
-      "3001:3000"
+      # "3001:3000"
     ];
 
     volumes = [
@@ -22,6 +22,8 @@
 
     environment = {};
 
-    extraOptions = [];
+    extraOptions = [
+      "--network=behind-nginx"
+    ];
   };
 }

@@ -9,12 +9,12 @@
     autoStart = true;
 
     dependsOn = [
-      "pihole"
-      "sabnzbd"
+      # "pihole"
+      # "sabnzbd"
     ];
 
     ports = [
-      "5076:5076"
+      # "5076:5076"
     ];
 
     volumes = [
@@ -27,6 +27,8 @@
       TZ = "Europe/Berlin";
     };
 
-    extraOptions = [];
+    extraOptions = [
+      "--net=behind-nginx"
+    ];
   };
 }

@@ -9,18 +9,19 @@
     autoStart = true;
 
     dependsOn = [
-      "pihole"
-      "sabnzbd"
-      "prowlarr"
+      # "pihole"
+      # "sabnzbd"
+      # "prowlarr"
     ];
 
     ports = [
-      "7878:7878"
+      # "7878:7878"
     ];
 
     volumes = [
       "/media/Usenet:/downloads"
       "/media/Movie:/movies"
+
       "radarr_config:/config"
     ];
 
@@ -30,6 +31,8 @@
       TZ = "Europe/Berlin";
     };
 
-    extraOptions = [];
+    extraOptions = [
+      "--net=behind-nginx"
+    ];
   };
 }

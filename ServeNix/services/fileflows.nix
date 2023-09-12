@@ -9,20 +9,22 @@
     autoStart = true;
 
     dependsOn = [
-      "pihole"
+      # "pihole"
     ];
 
     ports = [
-      "5000:5000"
+      # "5000:5000"
     ];
 
     volumes = [
       "/media/Video:/media/Video"
       "/media/Movie:/media/Movie"
       "/media/Show:/media/Show"
+
       "fileflows_temp:/temp"
-      "fileflows_config:/app/Data"
       "fileflows_logs:/app/Logs"
+      "fileflows_config:/app/Data"
+
       "/var/run/docker.sock:/var/run/docker.sock:ro"
     ];
 
@@ -34,6 +36,7 @@
 
     extraOptions = [
       "--gpus=all"
+      "--net=behind-nginx"
     ];
   };
 }

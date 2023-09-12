@@ -9,15 +9,16 @@
     autoStart = true;
 
     dependsOn = [
-      "pihole"
+      # "pihole"
     ];
 
     ports = [
-      "8080:8080"
+      # "8080:8080"
     ];
 
     volumes = [
       "/media/Usenet:/downloads"
+
       "sabnzbd_config:/config"
     ];
 
@@ -27,6 +28,8 @@
       TZ = "Europe/Berlin";
     };
 
-    extraOptions = [];
+    extraOptions = [
+      "--net=behind-nginx"
+    ];
   };
 }

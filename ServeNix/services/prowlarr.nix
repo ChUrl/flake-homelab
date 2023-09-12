@@ -9,11 +9,11 @@
     autoStart = true;
 
     dependsOn = [
-      "pihole"
+      # "pihole"
     ];
 
     ports = [
-      "9696:9696"
+      # "9696:9696"
     ];
 
     volumes = [
@@ -26,6 +26,8 @@
       TZ = "Europe/Berlin";
     };
 
-    extraOptions = [];
+    extraOptions = [
+      "--net=behind-nginx"
+    ];
   };
 }

@@ -11,17 +11,20 @@
     dependsOn = [];
 
     ports = [
-      "8000:8000"
-      "9443:9443"
+      # "8000:8000"
+      # "9443:9443"
     ];
 
     volumes = [
-      "/var/run/docker.sock:/var/run/docker.sock"
       "portainer_config:/data"
+
+      "/var/run/docker.sock:/var/run/docker.sock"
     ];
 
     environment = {};
 
-    extraOptions = [];
+    extraOptions = [
+      "--net=behind-nginx"
+    ];
   };
 }

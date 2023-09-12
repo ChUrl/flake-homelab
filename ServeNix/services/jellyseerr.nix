@@ -9,10 +9,10 @@
     autoStart = true;
 
     dependsOn = [
-      "pihole"
-      "sonarr"
-      "radarr"
-      "jellyfin"
+      # "pihole"
+      # "sonarr"
+      # "radarr"
+      # "jellyfin"
     ];
 
     ports = [
@@ -27,6 +27,8 @@
       TZ = "Europe/Berlin";
     };
 
-    extraOptions = [];
+    extraOptions = [
+      "--net=behind-nginx"
+    ];
   };
 }

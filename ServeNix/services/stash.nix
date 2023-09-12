@@ -9,16 +9,17 @@
     autoStart = true;
 
     dependsOn = [
-      "pihole"
+      # "pihole"
     ];
 
     ports = [
-      "9999:9999"
+      # "9999:9999"
     ];
 
     volumes = [
       "/media/Picture:/data/picture"
       "/media/Video:/data/video"
+
       "stash_config:/root/.stash"
       "stash_metadata:/metadata"
       "stash_generated:/generated"
@@ -32,12 +33,14 @@
       STASH_GENERATED = "/generated/";
       STASH_METADATA = "/metadata/";
       STASH_STASH = "/data/";
-      # NVIDIA_VISIBLE_DEVICES = "all";
-      # NVIDIA_DRIVER_CAPABILITIES = "all";
+
+      NVIDIA_VISIBLE_DEVICES = "all";
+      NVIDIA_DRIVER_CAPABILITIES = "all";
     };
 
     extraOptions = [
-      # "--gpus=all"
+      "--gpus=all"
+      "--net=behind-nginx"
     ];
   };
 }

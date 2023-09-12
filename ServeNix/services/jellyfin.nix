@@ -9,7 +9,7 @@
     autoStart = true;
 
     dependsOn = [
-      "pihole"
+      # "pihole"
     ];
 
     ports = [
@@ -20,6 +20,7 @@
       "/media/Music:/data/music"
       "/media/Show:/data/tvshows"
       "/media/Movie:/data/movies"
+
       "jellyfin_config:/config"
     ];
 
@@ -27,12 +28,13 @@
       PUID = "3000";
       PGID = "3000";
       TZ = "Europe/Berlin";
-      # NVIDIA_VISIBLE_DEVICES = "all";
-      # NVIDIA_DRIVER_CAPABILITIES = "all";
+      NVIDIA_VISIBLE_DEVICES = "all";
+      NVIDIA_DRIVER_CAPABILITIES = "all";
     };
 
     extraOptions = [
-      # "--gpus=all"
+      "--gpus=all"
+      "--net=behind-nginx"
     ];
   };
 }
