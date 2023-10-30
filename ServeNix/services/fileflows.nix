@@ -35,6 +35,7 @@
     };
 
     extraOptions = [
+      "--privileged" # Might help with CUDA issues?
       "--gpus=all"
       "--net=behind-nginx"
     ];
