@@ -39,6 +39,7 @@
     };
 
     extraOptions = [
+      "--privileged"
       "--gpus=all"
       "--net=behind-nginx"
     ];
