@@ -61,7 +61,7 @@
       POSTGRES_PASSWORD = "jellystat-db";
       POSTGRES_IP = "jellystat-db";
       POSTGRES_PORT = "5432";
-      JWM_SECRET = "MyUnsecretJwtKey";
+      JWT_SECRET = "MyUnsecretJwtKey";
 
       # PUID = "1000";
       # PGID = "1000";
