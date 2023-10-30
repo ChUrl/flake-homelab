@@ -18,15 +18,20 @@
     ./services/hydra.nix
     ./services/jellyfin.nix
     ./services/jellyseerr.nix
+    ./services/jellystat.nix
+    ./services/metube.nix
     # ./services/nextcloud.nix
     ./services/nginx-proxy-manager.nix
     ./services/pihole.nix
     ./services/portainer.nix
     ./services/prowlarr.nix
+    ./services/pyload-ng.nix
     ./services/radarr.nix
     ./services/sabnzbd.nix
     ./services/sonarr.nix
+    # ./services/speedtest-tracker.nix
     ./services/stash.nix
+    ./services/uptime-kuma.nix
     ./services/whats-up-docker.nix
     ./services/wireguard-vps.nix
   ];
@@ -167,6 +172,10 @@
       starship = {
         enable = true;
         enableFishIntegration = true;
+      };
+
+      yt-dlp = {
+        enable = true;
       };
     };
 
