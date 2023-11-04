@@ -12,7 +12,8 @@
     <home-manager/nixos>
 
     # Include Services
-    # ./services/pterodactyl.nix
+    ./services/pterodactyl.nix
+    ./services/wings.nix
   ];
 
   # Bootloader.
@@ -65,6 +66,48 @@
     nameservers = [
       "192.168.86.5"
     ];
+  };
+
+  systemd.services.init-behind-nginx-docker-network = {
+    description = "Create a docker network bridge for pterodactyl.";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+  
+    serviceConfig.Type = "oneshot";
+    script = let
+      dockercli = "${config.virtualisation.docker.package}/bin/docker";
+      network = "pterodactyl";
+    in ''
+      # Put a true at the end to prevent getting non-zero return code, which will
+      # crash the whole service.
+      check=$(${dockercli} network ls | grep ${network} || true)
+      if [ -z "$check" ]; then
+        ${dockercli} network create ${network}
+      else
+        echo "${network} already exists in docker"
+      fi
+    '';
+  };
+
+  systemd.services.init-behind-nginx-docker-network = {
+    description = "Create a docker network bridge for wings.";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+  
+    serviceConfig.Type = "oneshot";
+    script = let
+      dockercli = "${config.virtualisation.docker.package}/bin/docker";
+      network = "wings";
+    in ''
+      # Put a true at the end to prevent getting non-zero return code, which will
+      # crash the whole service.
+      check=$(${dockercli} network ls | grep ${network} || true)
+      if [ -z "$check" ]; then
+        ${dockercli} network create ${network}
+      else
+        echo "${network} already exists in docker"
+      fi
+    '';
   };
 
   # Set your time zone.
@@ -205,8 +248,28 @@
   networking.firewall = {
     # Open ports in the firewall.
     allowedTCPPorts = [
+      # Pterodactyl Panel
+      80
+      443
     ];
     allowedUDPPorts = [
+      # Pterodactyl Panel
+      80
+      443
+    ];
+    allowedTCPPortRanges = [
+      # Pterodactyl Node/Servers
+      {
+        from = 10000;
+        to = 10099;
+      }
+    ];
+    allowedUDPPortRanges = [
+      # Pterodactyl Node/Servers
+      {
+        from = 10000;
+        to = 10099;
+      }
     ];
     # Or disable the firewall altogether.
     enable = true;
