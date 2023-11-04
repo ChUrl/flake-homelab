@@ -68,7 +68,7 @@
     ];
   };
 
-  systemd.services.init-behind-nginx-docker-network = {
+  systemd.services.init-pterodactyl-docker-network = {
     description = "Create a docker network bridge for pterodactyl.";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
@@ -89,7 +89,7 @@
     '';
   };
 
-  systemd.services.init-behind-nginx-docker-network = {
+  systemd.services.init-wings-docker-network = {
     description = "Create a docker network bridge for wings.";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
