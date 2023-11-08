@@ -26,12 +26,17 @@
     # SG Exos Mirror Shares
 
     "/media/Movie" = {
-      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Movie";
+      device = "192.168.86.20:/mnt/SG Exos Mirror 18TB/Movie";
       fsType = "nfs";
     };
 
     "/media/Show" = {
-      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Show";
+      device = "192.168.86.20:/mnt/SG Exos Mirror 18TB/Show";
+      fsType = "nfs";
+    };
+
+    "/media/TV-Usenet" = {
+      device = "192.168.86.20:/mnt/SG Exos Mirror 18TB/Usenet";
       fsType = "nfs";
     };
 
