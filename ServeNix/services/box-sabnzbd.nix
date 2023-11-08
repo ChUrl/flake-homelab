@@ -4,26 +4,27 @@
   pkgs,
   ...
 }: {
-  virtualisation.oci-containers.containers.hydra = {
-    image = "linuxserver/nzbhydra2:latest";
+  virtualisation.oci-containers.containers.box-sabnzbd = {
+    image = "linuxserver/sabnzbd:latest";
     autoStart = true;
 
     dependsOn = [
       # "pihole"
-      # "sabnzbd"
     ];
 
     ports = [
-      # "5076:5076"
+      # "8080:8080"
     ];
 
     volumes = [
-      "hydra_config:/config"
+      "/media/Stash-Usenet:/downloads"
+
+      "box-sabnzbd_config:/config"
     ];
 
     environment = {
-      PUID = "1000";
-      PGID = "1000";
+      PUID = "3001";
+      PGID = "3001";
       TZ = "Europe/Berlin";
     };
 

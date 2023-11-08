@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  virtualisation.oci-containers.containers.stash = {
+  virtualisation.oci-containers.containers.box-stash = {
     image = "stashapp/stash:latest";
     autoStart = true;
 
@@ -17,14 +17,14 @@
     ];
 
     volumes = [
-      "/media/Picture:/data/picture"
-      "/media/Video:/data/video"
+      "/media/Stash-Picture:/data/picture"
+      "/media/Stash-Video:/data/video"
 
-      "stash_config:/root/.stash"
-      "stash_metadata:/metadata"
-      "stash_generated:/generated"
-      "stash_blobs:/blobs"
-      "stash_cache:/cache"
+      "box-stash_config:/root/.stash"
+      "box-stash_metadata:/metadata"
+      "box-stash_generated:/generated"
+      "box-stash_blobs:/blobs"
+      "box-stash_cache:/cache"
     ];
 
     environment = {

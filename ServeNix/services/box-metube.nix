@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  virtualisation.oci-containers.containers.metube = {
+  virtualisation.oci-containers.containers.box-metube = {
     image = "ghcr.io/alexta69/metube";
     autoStart = true;
 
@@ -17,7 +17,7 @@
     ];
 
     volumes = [
-      "/media/Usenet/metube:/downloads"
+      "/media/Stash-Usenet/metube:/downloads"
     ];
 
     environment = {

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  virtualisation.oci-containers.containers.fileflows = {
+  virtualisation.oci-containers.containers.box-fileflows = {
     image = "revenz/fileflows:latest";
     autoStart = true;
 
@@ -17,25 +17,24 @@
     ];
 
     volumes = [
-      "/media/Video:/media/Video"
-      "/media/Movie:/media/Movie"
-      "/media/Show:/media/Show"
+      "/media/Stash-Video:/media/Video"
 
-      "fileflows_temp:/temp"
-      "fileflows_logs:/app/Logs"
-      "fileflows_config:/app/Data"
+      "box-fileflows_temp:/temp"
+      "box-fileflows_logs:/app/Logs"
+      "box-fileflows_config:/app/Data"
 
       "/var/run/docker.sock:/var/run/docker.sock:ro"
     ];
 
     environment = {
       TZ = "Europe/Berlin";
+
       NVIDIA_VISIBLE_DEVICES = "all";
       NVIDIA_DRIVER_CAPABILITIES = "all";
     };
 
     extraOptions = [
-      "--privileged" # Might help with CUDA issues?
+      "--privileged" # Helps with CUDA issues
       "--gpus=all"
       "--net=behind-nginx"
     ];
