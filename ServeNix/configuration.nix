@@ -14,6 +14,7 @@
     # General
     ./services/authelia.nix
     ./services/gitea.nix
+    ./services/gitea-runner.nix
     ./services/homepage.nix
     ./services/nginx-proxy-manager.nix
     ./services/pihole.nix
@@ -23,6 +24,7 @@
     ./services/wireguard-vps.nix
 
     # Multimedia
+    ./services/fileflows.nix
     ./services/jellyfin.nix
     ./services/jellyseerr.nix
     ./services/jellystat.nix
