@@ -37,7 +37,9 @@
 
     ports = [
       "3000:3000"
-      # "222:22"
+
+      # NOTE: Set .git/config url to ssh://christoph@gitea.local.chriphost.de:222/christoph/<repo>.git
+      "222:22" # Gitea SSH
     ];
 
     volumes = [
