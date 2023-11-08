@@ -19,7 +19,7 @@
     volumes = [
       "/media/TV-Usenet:/downloads"
 
-      "tv-sabnzbd_config:/config"
+      "sabnzbd_config:/config"
     ];
 
     environment = {
