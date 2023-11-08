@@ -14,6 +14,7 @@
     # Include Services
     ./services/authelia.nix
     ./services/fileflows.nix
+    ./services/gitea.nix
     ./services/homepage.nix
     ./services/hydra.nix
     ./services/jellyfin.nix
