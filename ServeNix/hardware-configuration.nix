@@ -42,18 +42,6 @@
 
     # WD Blue Stripe Shares
 
-    # TODO: Remove
-    "/media/Stash-Movie" = {
-      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Movie";
-      fsType = "nfs";
-    };
-
-    # TODO: Remove
-    "/media/Stash-Show" = {
-      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Show";
-      fsType = "nfs";
-    };
-
     "/media/Stash-Video" = {
       device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Video";
       fsType = "nfs";
