@@ -17,7 +17,6 @@
     ];
 
     volumes = [
-      "/media/Music:/data/music"
       "/media/Show:/data/tvshows"
       "/media/Movie:/data/movies"
 

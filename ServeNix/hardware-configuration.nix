@@ -23,6 +23,8 @@
       fsType = "ext4";
     };
 
+    # SG Exos Mirror Shares
+
     "/media/Movie" = {
       device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Movie";
       fsType = "nfs";
@@ -33,22 +35,31 @@
       fsType = "nfs";
     };
 
-    "/media/Music" = {
-      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Music";
+    # WD Blue Stripe Shares
+
+    # TODO: Remove
+    "/media/Stash-Movie" = {
+      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Movie";
       fsType = "nfs";
     };
 
-    "/media/Video" = {
+    # TODO: Remove
+    "/media/Stash-Show" = {
+      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Show";
+      fsType = "nfs";
+    };
+
+    "/media/Stash-Video" = {
       device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Video";
       fsType = "nfs";
     };
 
-    "/media/Picture" = {
+    "/media/Stash-Picture" = {
       device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Picture";
       fsType = "nfs";
     };
 
-    "/media/Usenet" = {
+    "/media/Stash-Usenet" = {
       device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Usenet";
       fsType = "nfs";
     };

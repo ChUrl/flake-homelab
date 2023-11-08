@@ -17,14 +17,14 @@
     ];
 
     volumes = [
-      "/media/Usenet:/downloads"
+      "/media/TV-Usenet:/downloads"
 
-      "sabnzbd_config:/config"
+      "tv-sabnzbd_config:/config"
     ];
 
     environment = {
-      PUID = "3001";
-      PGID = "3001";
+      PUID = "3000";
+      PGID = "3000";
       TZ = "Europe/Berlin";
     };
 

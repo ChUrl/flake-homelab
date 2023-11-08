@@ -19,15 +19,15 @@
     ];
 
     volumes = [
-      "/media/Usenet:/downloads"
+      "/media/TV-Usenet:/downloads"
       "/media/Show:/tv"
 
       "sonarr_config:/config"
     ];
 
     environment = {
-      PUID = "3001";
-      PGID = "3001";
+      PUID = "3000";
+      PGID = "3000";
       TZ = "Europe/Berlin";
     };
 

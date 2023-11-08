@@ -11,30 +11,32 @@
     ./hardware-configuration.nix
     <home-manager/nixos>
 
-    # Include Services
+    # General
     ./services/authelia.nix
-    ./services/fileflows.nix
     ./services/gitea.nix
     ./services/homepage.nix
-    ./services/hydra.nix
-    ./services/jellyfin.nix
-    ./services/jellyseerr.nix
-    ./services/jellystat.nix
-    ./services/metube.nix
-    # ./services/nextcloud.nix
     ./services/nginx-proxy-manager.nix
     ./services/pihole.nix
     ./services/portainer.nix
-    ./services/prowlarr.nix
-    ./services/pyload-ng.nix
-    ./services/radarr.nix
-    ./services/sabnzbd.nix
-    ./services/sonarr.nix
-    # ./services/speedtest-tracker.nix
-    ./services/stash.nix
     ./services/uptime-kuma.nix
     ./services/whats-up-docker.nix
     ./services/wireguard-vps.nix
+
+    # Multimedia
+    ./services/jellyfin.nix
+    ./services/jellyseerr.nix
+    ./services/jellystat.nix
+    ./services/prowlarr.nix
+    ./services/radarr.nix
+    ./services/sonarr.nix
+    ./services/sabnzbd.nix
+
+    # Box
+    ./services/box-fileflows.nix
+    ./services/box-hydra.nix
+    ./services/box-metube.nix
+    ./services/box-sabnzbd.nix
+    ./services/box-stash.nix
   ];
 
   # Bootloader.
