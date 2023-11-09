@@ -15,6 +15,7 @@
     ./services/authelia.nix
     ./services/gitea.nix
     ./services/gitea-runner.nix
+    # ./services/gitlab.nix
     ./services/homepage.nix
     ./services/nginx-proxy-manager.nix
     ./services/pihole.nix
@@ -139,9 +140,19 @@
   users.users.christoph = {
     isNormalUser = true;
     description = "Christoph";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     shell = pkgs.fish;
     packages = with pkgs; [];
+  };
+
+  users.users.git = {
+    uid = 500;
+    group = "git";
+    isNormalUser = false;
+    isSystemUser = true;
+    description = "Gitea User";
+    extraGroups = ["docker"];
+    shell = pkgs.fish;
   };
 
   home-manager.users.christoph = {pkgs, ...}: {
@@ -256,11 +267,15 @@
       # PiHole requires these ports, as it's running in --net=host mode
       53
       80
+
+      3000 # Gitea runner needs to reach local gitea instance
     ];
     allowedUDPPorts = [
       # PiHole requires these ports, as it's running in --net=host mode
       53
       67 # PiHole DHCP
+
+      3000 # Gitea runner needs to reach local gitea instance
     ];
     # Or disable the firewall altogether.
     enable = true;

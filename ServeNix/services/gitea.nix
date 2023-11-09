@@ -23,7 +23,7 @@
     };
 
     extraOptions = [
-      "--network=behind-nginx"
+      "--net=behind-nginx"
     ];
   };
 
@@ -50,9 +50,9 @@
     ];
 
     environment = {
-      USER = "christoph";
-      USER_UID = "1000";
-      USER_GID = "100";
+      USER = "git";
+      USER_UID = "500";
+      # USER_GID = "100";
 
       GITEA__database__DB_TYPE = "postgres";
       GITEA__database__HOST = "gitea-db:5432";
@@ -63,7 +63,7 @@
     };
 
     extraOptions = [
-      "--network=behind-nginx"
+      "--net=behind-nginx"
     ];
   };
 }
