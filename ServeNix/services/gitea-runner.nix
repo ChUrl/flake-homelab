@@ -41,7 +41,7 @@
       CONFIG_FILE = "/config/config.yaml";
 
       # NOTE: This token is invalid, when re-registering is needed it has to be refreshed
-      GITEA_RUNNER_REGISTRATION_TOKEN = "2tYcfzALjmIKILPO4jnIdgfGO8RjBGIZCOoP4bYS";
+      GITEA_RUNNER_REGISTRATION_TOKEN = "Mq6wr0dPthqDij3iaryP8s5VYZA5kPfOQbHA6wm6";
 
       # These are for the specific vegardit/gitea-act-runner image
       # GITEA_RUNNER_LOG_LEVEL = "debug";
