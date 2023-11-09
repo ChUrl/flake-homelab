@@ -23,7 +23,7 @@
     environment = {};
 
     extraOptions = [
-      "--network=behind-nginx"
+      "--net=behind-nginx"
     ];
   };
 }

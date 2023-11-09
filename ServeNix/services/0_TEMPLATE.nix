@@ -26,7 +26,7 @@
 
     extraOptions = [
       # "--gpus=all"
-      "--network=behind-nginx"
+      "--net=behind-nginx"
     ];
   };
 }
