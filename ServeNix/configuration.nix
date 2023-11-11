@@ -12,10 +12,10 @@
     <home-manager/nixos>
 
     # General
+    ./services/airsignal.nix
     ./services/authelia.nix
     ./services/gitea.nix
     ./services/gitea-runner.nix
-    # ./services/gitlab.nix
     ./services/homepage.nix
     ./services/nginx-proxy-manager.nix
     ./services/pihole.nix
@@ -25,6 +25,7 @@
     ./services/wireguard-vps.nix
 
     # Multimedia
+    ./services/bazarr.nix
     ./services/fileflows.nix
     ./services/jellyfin.nix
     ./services/jellyseerr.nix
