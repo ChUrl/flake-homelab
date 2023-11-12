@@ -66,7 +66,7 @@
     volumes = [
       "nextcloud_data:/var/www/html"
 
-      "/var/run/docker.sock:/var/run/docker.sock:ro"
+      # "/var/run/docker.sock:/var/run/docker.sock:ro" # For AiO
     ];
 
     environment = {
