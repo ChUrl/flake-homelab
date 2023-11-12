@@ -17,6 +17,7 @@
     ./services/gitea.nix
     ./services/gitea-runner.nix
     ./services/homepage.nix
+    ./services/nextcloud.nix
     ./services/nginx-proxy-manager.nix
     ./services/pihole.nix
     ./services/portainer.nix
