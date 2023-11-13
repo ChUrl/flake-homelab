@@ -23,6 +23,11 @@
       fsType = "ext4";
     };
 
+    "/home/christoph/ssd" = {
+      device = "/dev/disk/by-uuid/ff42f57c-cd45-41ea-a0ee-640e638b38bc";
+      fsType = "ext4";
+    };
+
     # SG Exos Mirror Shares
 
     "/media/Movie" = {
