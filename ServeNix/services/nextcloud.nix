@@ -72,6 +72,9 @@
     environment = {
       # Don't add PUID/PGID/TZ or sth like that!
 
+      # Allow uploads larger than 1GB
+      APACHE_BODY_LIMIT = "0";
+
       # Proxy
       APACHE_DISABLE_REWRITE_IP = "1";
       TRUSTED_DOMAINS = "nextcloud.local.chriphost.de local.chriphost.de nextcloud.vps.chriphost.de vps.chriphost.de";
