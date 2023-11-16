@@ -4,161 +4,23 @@
   pkgs,
   ...
 }: {
-  virtualisation.oci-containers.containers.immich-server = {
-    image = "ghcr.io/immich-app/immich-server:release";
-    autoStart = true;
-
-    dependsOn = [
-      "immich-redis"
-      "immich-database"
-      "immich-typesense"
-    ];
-
-    ports = [];
-
-    volumes = [
-      "immich-server_data:/usr/src/app/upload"
-
-      "/etc/localtime:/etc/localtime:ro"
-    ];
-
-    environment = {};
-
-    # command: [ "start.sh", "immich" ]
-    entrypoint = "start.sh";
-    cmd = [ "immich" ];
-
-    extraOptions = [
-      "--net=behind-nginx"
-    ];
-  };
-
-  virtualisation.oci-containers.containers.immich-microservices = {
-    image = "ghcr.io/immich-app/immich-server:release";
-    autoStart = true;
-
-    # extends:
-    #   file: hwaccel.yml
-    #   service: hwaccel
-
-    dependsOn = [
-      "immich-redis"
-      "immich-database"
-      "immich-typesense"
-    ];
-
-    ports = [];
-
-    volumes = [
-      "immich-server_data:/usr/src/app/upload"
-
-      "/etc/localtime:/etc/localtime:ro"
-    ];
-
-    environment = {};
-
-    # command: [ "start.sh", "microservices" ]
-    entrypoint = "start.sh";
-    cmd = [ "microservices" ];
-
-    extraOptions = [
-      "--net=behind-nginx"
-    ];
-  };
-
-  virtualisation.oci-containers.containers.immich-machine-learning = {
-    image = "ghcr.io/immich-app/immich-machine-learning:release";
-    autoStart = true;
-
-    dependsOn = [];
-
-    ports = [];
-
-    volumes = [
-      "model-cache:/cache"
-    ];
-
-    environment = {};
-
-    extraOptions = [
-      "--net=behind-nginx"
-    ];
-  };
-
-  virtualisation.oci-containers.containers.immich-web = {
-    image = "ghcr.io/immich-app/immich-web:release";
-    autoStart = true;
-
-    dependsOn = [];
-
-    ports = [];
-
-    volumes = [];
-
-    environment = {};
-
-    extraOptions = [
-      "--net=behind-nginx"
-    ];
-  };
-
-  virtualisation.oci-containers.containers.immich-typesense = {
-    image = "typesense/typesense:0.24.1@sha256:9bcff2b829f12074426ca044b56160ca9d777a0c488303469143dd9f8259d4dd";
-    autoStart = true;
-
-    dependsOn = [];
-
-    ports = [];
-
-    volumes = [
-      "immich-typesense_data:/data"
-    ];
-
-    environment = {
-      TYPESENSE_API_KEY = "public-fucking-random-api-key";
-      TYPESENSE_DATA_DIR = "/data";
-
-      # Remove this to get debug messages
-      GLOG_minloglevel = "1";
-    };
-
-    extraOptions = [
-      "--net=behind-nginx"
-    ];
-  };
-
-  virtualisation.oci-containers.containers.immich-redis = {
-    image = "redis:6.2-alpine@sha256:3995fe6ea6a619313e31046bd3c8643f9e70f8f2b294ff82659d409b47d06abb";
-    autoStart = true;
-
-    dependsOn = [];
-
-    ports = [];
-
-    volumes = [];
-
-    environment = {};
-
-    extraOptions = [
-      "--net=behind-nginx"
-    ];
-  };
-
   virtualisation.oci-containers.containers.immich-database = {
-    image = "postgres:14-alpine@sha256:874f566dd512d79cf74f59754833e869ae76ece96716d153b0fa3e64aec88d92";
+    image = "postgres:15";
     autoStart = true;
 
     dependsOn = [];
 
-    ports = [];
+    ports = [
+      # "5432:5432"
+    ];
 
     volumes = [
       "immich-database_data:/var/lib/postgresql/data"
     ];
 
     environment = {
-      POSTGRES_PASSWORD = "immich";
       POSTGRES_USER = "immich";
+      POSTGRES_PASSWORD = "immich";
       POSTGRES_DB = "immich";
     };
 
@@ -167,17 +29,14 @@
     ];
   };
 
-  virtualisation.oci-containers.containers.immich-proxy = {
-    image = "ghcr.io/immich-app/immich-proxy:release";
+  virtualisation.oci-containers.containers.immich-redis = {
+    image = "redis";
     autoStart = true;
 
-    dependsOn = [
-      "immich-server"
-      "immich-web"
-    ];
+    dependsOn = [];
 
     ports = [
-      "2283:8080"
+      # "6379:6379"
     ];
 
     volumes = [];
@@ -185,6 +44,54 @@
     environment = {};
 
     extraOptions = [
+      "--net=behind-nginx"
+    ];
+  };
+
+  virtualisation.oci-containers.containers.immich = {
+    image = "ghcr.io/imagegenius/immich:latest";
+    autoStart = true;
+
+    dependsOn = [
+      "immich-database"
+      "immich-redis"
+    ];
+
+    ports = [
+      "2283:8080"
+    ];
+
+    volumes = [
+      "immich_config:/config"
+      "immich_data:/photos"
+      "immich_machine-learning:/config/machine-learning"
+      # "immich_imports:/import:ro"
+    ];
+
+    environment = {
+      PUID = "1000";
+      PGID = "1000";
+      TZ = "Europe/Berlin";
+
+      DB_HOSTNAME = "immich-database";
+      DB_USERNAME = "immich";
+      DB_PASSWORD = "immich";
+      # DB_PORT = "5432";
+      DB_DATABASE_NAME = "immich";
+
+      REDIS_HOSTNAME = "immich-redis";
+      # REDIS_PORT = "6379";
+      # REDIS_PASSWORD = "";
+
+      MACHINE_LEARNING_WORKERS = "1";
+      MACHINE_LEARNING_WORKER_TIMEOUT = "120";
+      DISABLE_MACHINE_LEARNING = "false";
+      DISABLE_TYPESENSE = "false";
+    };
+
+    extraOptions = [
+      "--privileged"
+      "--gpus=all"
       "--net=behind-nginx"
     ];
   };
