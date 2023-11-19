@@ -18,6 +18,7 @@
     ./services/gitea-runner.nix
     ./services/homepage.nix
     ./services/immich.nix
+    ./services/memos.nix
     ./services/nextcloud.nix
     ./services/nginx-proxy-manager.nix
     ./services/pihole.nix
