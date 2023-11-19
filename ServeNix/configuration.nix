@@ -23,7 +23,6 @@
     ./services/nginx-proxy-manager.nix
     ./services/pihole.nix
     ./services/portainer.nix
-    ./services/syncthing.nix
     ./services/uptime-kuma.nix
     ./services/whats-up-docker.nix
     ./services/wireguard-vps.nix
