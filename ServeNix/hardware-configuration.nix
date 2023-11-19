@@ -28,6 +28,13 @@
       fsType = "ext4";
     };
 
+    # Synology DS223j
+
+    "/media/synology-syncthing" = {
+      device = "192.168.86.15:/volume1/DockerVolumes";
+      fsType = "nfs";
+    };
+
     # SG Exos Mirror Shares
 
     "/media/Movie" = {
