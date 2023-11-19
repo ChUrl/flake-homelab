@@ -18,7 +18,7 @@
       "kopia_config:/app/config"
       "kopia_cache:/app/cache"
       "kopia_logs:/app/logs"
-      "kopia_temp:/tmp/shared"
+      "kopia_temp:/tmp"
 
       "/media/synology-syncthing:/repository"
 
@@ -29,8 +29,9 @@
     ];
 
     environment = {
+      TZ = "Europe/Berlin";
       USER = "christoph";
-      KOPIA_PASSWORD = "kopia";
+      KOPIA_PASSWORD = (builtins.readFile ./kopia.password);
     };
 
     entrypoint = "/bin/kopia";
@@ -46,6 +47,9 @@
     ];
 
     extraOptions = [
+      "--privileged"
+      "--device=/dev/fuse:/dev/fuse:rwm"
+      "--cap-add=SYS_ADMIN"
       "--net=behind-nginx"
     ];
   };
