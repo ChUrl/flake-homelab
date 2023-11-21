@@ -39,7 +39,7 @@
       "3000:3000"
 
       # NOTE: Set .git/config url to ssh://christoph@gitea.local.chriphost.de:222/christoph/<repo>.git
-      "222:22" # Gitea SSH
+      "222:222" # Gitea SSH
     ];
 
     volumes = [
