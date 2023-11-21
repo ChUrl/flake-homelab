@@ -28,6 +28,9 @@
     ./services/whats-up-docker.nix
     ./services/wireguard-vps.nix
 
+    # Discord
+    ./services/heidi.nix
+
     # MultimediArr
     ./services/bazarr.nix
     ./services/fileflows.nix
