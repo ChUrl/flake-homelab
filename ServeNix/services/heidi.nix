@@ -12,7 +12,9 @@
 
     ports = [];
 
-    volumes = [];
+    volumes = [
+      "/home/christoph/heidi-sounds:/sounds:ro"
+    ];
 
     environment = {
       DISCORD_TOKEN = (builtins.readFile ./heidi.discord_token);
