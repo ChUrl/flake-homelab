@@ -13,11 +13,14 @@
     ports = [];
 
     volumes = [
+      "heidi_config:/config"
+
       "/home/christoph/heidi-sounds:/sounds:ro"
     ];
 
     environment = {
       DISCORD_TOKEN = (builtins.readFile ./heidi.discord_token);
+      DOCKER = "True";
     };
 
     extraOptions = [
