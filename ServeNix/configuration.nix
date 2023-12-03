@@ -11,8 +11,15 @@
     ./hardware-configuration.nix
     <home-manager/nixos>
 
-    # General
+    # DNS (required for internet)
+    ./services/adguard.nix
+    # ./services/pihole.nix
+
+    # My own stuff
     ./services/airsignal.nix
+    ./services/heidi.nix
+
+    # General
     ./services/authelia.nix
     ./services/gitea.nix
     ./services/gitea-runner.nix
@@ -22,14 +29,10 @@
     ./services/memos.nix
     ./services/nextcloud.nix
     ./services/nginx-proxy-manager.nix
-    ./services/pihole.nix
     ./services/portainer.nix
     ./services/uptime-kuma.nix
     ./services/whats-up-docker.nix
     ./services/wireguard-vps.nix
-
-    # Discord
-    ./services/heidi.nix
 
     # MultimediArr
     ./services/bazarr.nix
