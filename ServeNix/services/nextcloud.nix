@@ -95,4 +95,28 @@
       "--net=behind-nginx"
     ];
   };
+
+  virtualisation.oci-containers.containers.nextcloud-cronjob = {
+    image = "rcdailey/nextcloud-cronjob";
+    autoStart = true;
+
+    dependsOn = [
+      "nextcloud"
+    ];
+
+    ports = [];
+
+    volumes = [
+      "/etc/localtime:/etc/localtime:ro"
+      "/var/run/docker.sock:/var/run/docker.sock:ro"
+    ];
+
+    environment = {
+      NEXTCLOUD_CONTAINER_NAME = "nextcloud";
+    };
+
+    extraOptions = [
+      "--net=behind-nginx"
+    ];
+  };
 }
