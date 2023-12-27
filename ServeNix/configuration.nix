@@ -23,6 +23,7 @@
     ./services/authelia.nix
     ./services/gitea.nix
     ./services/gitea-runner.nix
+    ./services/homeassistant.nix
     ./services/homepage.nix
     ./services/immich.nix
     ./services/kopia.nix
@@ -174,6 +175,7 @@
       nnn
       busybox
       glances
+      ripgrep
 
       docker-compose
     ];

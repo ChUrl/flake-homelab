@@ -8,12 +8,7 @@
     image = "fallenbagel/jellyseerr:latest";
     autoStart = true;
 
-    dependsOn = [
-      # "pihole"
-      # "sonarr"
-      # "radarr"
-      # "jellyfin"
-    ];
+    dependsOn = [];
 
     ports = [
       "5055:5055"
