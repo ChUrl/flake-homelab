@@ -17,7 +17,7 @@
     ];
 
     volumes = [
-      "/media/Stash-Usenet:/downloads"
+      "/media/Stash-Video:/downloads"
 
       "box-sabnzbd_config:/config"
     ];

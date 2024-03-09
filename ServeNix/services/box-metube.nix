@@ -17,7 +17,7 @@
     ];
 
     volumes = [
-      "/media/Stash-Usenet/metube:/downloads"
+      "/media/Stash-Video:/downloads"
     ];
 
     environment = {
