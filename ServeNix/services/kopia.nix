@@ -36,6 +36,7 @@
       "box-stash_generated:/data/box-stash_generated:ro"
       "box-stash_metadata:/data/box-stash_metadata:ro"
       "fileflows_config:/data/fileflows_config:ro"
+      "formula10_data:/data/formula10_data:ro"
       "gitea-db_data:/data/gitea-db_data:ro"
       "gitea-runner_config:/data/gitea-runner_config:ro"
       "gitea-runner_data:/data/gitea-runner_data:ro"

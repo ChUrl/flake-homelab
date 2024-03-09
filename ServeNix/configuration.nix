@@ -18,6 +18,7 @@
     # My own stuff
     ./services/airsignal.nix
     ./services/heidi.nix
+    ./services/formula10.nix
 
     # General
     ./services/authelia.nix
@@ -27,7 +28,6 @@
     ./services/homepage.nix
     ./services/immich.nix
     ./services/kopia.nix
-    ./services/memos.nix
     ./services/nextcloud.nix
     ./services/nginx-proxy-manager.nix
     ./services/portainer.nix
@@ -103,6 +103,8 @@
     defaultGateway = "192.168.86.5";
     nameservers = [
       "127.0.0.1"
+      # "192.168.86.25"
+      # "8.8.8.8"
     ];
   };
 
@@ -120,6 +122,10 @@
       # crash the whole service.
       check=$(${dockercli} network ls | grep ${network} || true)
       if [ -z "$check" ]; then
+        # TODO: Disable IP masquerading to show individual containers in AdGuard/Pi-Hole
+        #       - Disabling this prevents containers from having internet connection. DNS issue?
+        # ${dockercli} network create -o "com.docker.network.bridge.enable_ip_masquerade"="false" ${network}
+
         ${dockercli} network create ${network}
       else
         echo "${network} already exists in docker"
@@ -220,6 +226,17 @@
       #   enable = true;
       #   setSocketVariable = true;
       # };
+      daemon.settings = {
+        dns = [
+          # TODO: Does this circumvent my DNS for each container?
+          #       It might improve gitea actions though...
+          "8.8.8.8"
+
+          # TODO: Might prevent containers from having DNS?
+          # "127.0.0.1"
+          # "192.168.86.25"
+        ];
+      };
     };
     oci-containers.backend = "docker";
   };
@@ -272,6 +289,8 @@
 
     ntp.enable = true;
     qemuGuest.enable = true;
+    # TODO: Might prevent containers from having working DNS
+    # resolved.fallbackDns = ["8.8.8.8"];
   };
 
   networking.firewall = {
