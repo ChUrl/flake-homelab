@@ -52,7 +52,6 @@
       "jellyseerr_config:/data/jellyseerr_config:ro"
       "jellystat-db_data:/data/jellystat-db_data:ro"
       "jellystat_data:/data/jellystat_data:ro"
-      "memos_data:/data/memos_data:ro"
       "nextcloud-db_data:/data/nextcloud-db_data:ro"
       "nextcloud_data:/data/nextcloud_data:ro"
       "nginx_config:/data/nginx_config:ro"
