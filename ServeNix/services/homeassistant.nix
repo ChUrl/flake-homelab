@@ -11,7 +11,7 @@
     dependsOn = [];
 
     ports = [
-      # "8123:8123" # WebUI
+      "8123:8123" # WebUI
     ];
 
     volumes = [
