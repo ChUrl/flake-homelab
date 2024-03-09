@@ -5,7 +5,7 @@
   ...
 }: {
   virtualisation.oci-containers.containers.immich-database = {
-    image = "postgres:15";
+    image = "tensorchord/pgvecto-rs:pg15-v0.2.0";
     autoStart = true;
 
     dependsOn = [];
@@ -85,8 +85,6 @@
 
       MACHINE_LEARNING_WORKERS = "1";
       MACHINE_LEARNING_WORKER_TIMEOUT = "120";
-      DISABLE_MACHINE_LEARNING = "false";
-      DISABLE_TYPESENSE = "false";
     };
 
     extraOptions = [
