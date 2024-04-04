@@ -12,7 +12,7 @@
     <home-manager/nixos>
 
     # DNS (required for internet)
-    ./services/adguard.nix
+    # ./services/adguard.nix # NOTE: Runs on ThinkNix
     # ./services/pihole.nix
 
     # My own stuff
@@ -103,8 +103,8 @@
     }];
     defaultGateway = "192.168.86.5";
     nameservers = [
-      "127.0.0.1"
-      # "192.168.86.25"
+      # "127.0.0.1"
+      "192.168.86.26"
       # "8.8.8.8"
     ];
   };
