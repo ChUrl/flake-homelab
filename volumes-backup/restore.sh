@@ -2,4 +2,4 @@
 
 VOLUME_NAME="wireguard_vps_config"
 
-sudo docker run --rm -v /home/christoph/volumes-backup:/backup -v "$VOLUME_NAME":/data debian:stretch-slim bash -c "cd /data && /bin/tar -xzvf /backup/$VOLUME_NAME.tar.gz"
+sudo docker run --rm -v /home/christoph/HomeLab/volumes-backup:/backup -v "$VOLUME_NAME":/data debian:stretch-slim bash -c "cd /data && /bin/tar -xzvf /backup/$VOLUME_NAME.tar.gz"
