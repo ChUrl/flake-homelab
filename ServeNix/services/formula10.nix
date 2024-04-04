@@ -18,7 +18,9 @@
       "formula10_data:/app/instance"
     ];
 
-    environment = {};
+    environment = {
+      TZ = "Europe/Berlin";
+    };
 
     extraOptions = [
       "--init" # Make an init process take up PID 1, to make python receive the SIGTERM
