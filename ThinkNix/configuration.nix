@@ -19,6 +19,7 @@
     # ./services/kopia.nix
     ./services/nginx-proxy-manager.nix
     ./services/portainer.nix
+    ./services/wireguard.nix
   ];
 
   # Bootloader.

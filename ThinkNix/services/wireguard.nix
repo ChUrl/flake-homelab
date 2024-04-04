@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  virtualisation.oci-containers.containers.wireguard-vps = {
+  virtualisation.oci-containers.containers.wireguard = {
     image = "linuxserver/wireguard:latest";
     autoStart = true;
 

@@ -34,7 +34,7 @@
     ./services/portainer.nix
     ./services/uptime-kuma.nix
     ./services/whats-up-docker.nix
-    ./services/wireguard-vps.nix
+    # ./services/wireguard-vps.nix # NOTE: Runs on ThinkNix
 
     # MultimediArr
     ./services/bazarr.nix
