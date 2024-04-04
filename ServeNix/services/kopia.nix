@@ -57,6 +57,8 @@
       "nginx_config:/data/nginx_config:ro"
       "nginx_letsencrypt:/data/nginx_letsencrypt:ro"
       "nginx_snippets:/data/nginx_snippets:ro"
+      "paperless-postgres_data:/data/paperless-postgres_data:ro"
+      "paperless_data:/data/paperless_data:ro"
       "portainer_config:/data/portainer_config:ro"
       "prowlarr_config:/data/prowlarr_config:ro"
       "radarr_config:/data/radarr_config:ro"
