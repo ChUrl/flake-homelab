@@ -1,2 +1,3 @@
 *.password
 ServeNix/services/heidi.discord_token
+volumes-backup/*.tar.gz
