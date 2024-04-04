@@ -66,6 +66,12 @@
     volumes = [
       "nextcloud_data:/var/www/html"
 
+      # Paperless media
+      # "/media/paperless-consume:/media/paperless-consume"
+      # "/media/paperless-export:/media/paperless-export"
+      # "/media/paperless-media:/media/paperless-media"
+      "/home/christoph/nextcloud:/flow-scripts"
+
       # "/var/run/docker.sock:/var/run/docker.sock:ro" # For AiO
     ];
 
@@ -74,11 +80,11 @@
 
       # Allow uploads larger than 1GB
       APACHE_BODY_LIMIT = "0";
-      NEXTCLOUD_TRUSTED_DOMAINS = "nextcloud.local.chriphost.de local.chriphost.de nextcloud.vps.chriphost.de vps.chriphost.de";
+      NEXTCLOUD_TRUSTED_DOMAINS = "https://nextcloud.local.chriphost.de https://local.chriphost.de https://nextcloud.vps.chriphost.de https://vps.chriphost.de";
 
       # Proxy
       APACHE_DISABLE_REWRITE_IP = "1";
-      TRUSTED_PROXIES = "192.168.86.25 212.227.233.241";
+      TRUSTED_PROXIES = "192.168.86.25 212.227.233.241 172.19.0.1";
       OVERWRITEPROTOCOL = "https";
       
       # DB
@@ -113,6 +119,7 @@
 
     environment = {
       NEXTCLOUD_CONTAINER_NAME = "nextcloud";
+      NEXTCLOUD_CRON_MINUTE_INTERVAL = "5";
     };
 
     extraOptions = [
