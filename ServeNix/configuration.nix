@@ -24,12 +24,13 @@
     ./services/authelia.nix
     ./services/gitea.nix
     ./services/gitea-runner.nix
-    ./services/homeassistant.nix
+    # ./services/homeassistant.nix # Replaced by HAOS
     ./services/homepage.nix
     ./services/immich.nix
     ./services/kopia.nix
     ./services/nextcloud.nix
     ./services/nginx-proxy-manager.nix
+    ./services/paperless.nix
     ./services/portainer.nix
     ./services/uptime-kuma.nix
     ./services/whats-up-docker.nix
