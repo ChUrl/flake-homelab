@@ -4,11 +4,61 @@
   pkgs,
   ...
 }: {
+  virtualisation.oci-containers.containers.box-stash-cdp = {
+    image = "chromedp/headless-shell:latest";
+    autoStart = true;
+
+    dependsOn = [
+      # "pihole"
+    ];
+
+    ports = [
+      # "9222:9222"
+    ];
+
+    volumes = [];
+
+    environment = {};
+
+    extraOptions = [
+      # "--gpus=all"
+      # "--shm-size=2G"
+      "--net=behind-nginx"
+    ];
+  };
+
+  virtualisation.oci-containers.containers.box-stash-flaresolverr = {
+    image = "ghcr.io/flaresolverr/flaresolverr:latest";
+    autoStart = true;
+
+    dependsOn = [
+      # "pihole"
+    ];
+
+    ports = [
+      # "8191:8191"
+    ];
+
+    volumes = [];
+
+    environment = {
+      LOG_LEVEL = "info";
+    };
+
+    extraOptions = [
+      # "--gpus=all"
+      # "--shm-size=2G"
+      "--net=behind-nginx"
+    ];
+  };
+
   virtualisation.oci-containers.containers.box-stash = {
     image = "stashapp/stash:latest";
     autoStart = true;
 
     dependsOn = [
+      "box-stash-cdp"
+      "box-stash-flaresolverr"
       # "pihole"
     ];
 

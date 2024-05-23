@@ -18,6 +18,7 @@
 
     volumes = [
       "/media/Stash-Video:/media/Video"
+      "/media/Stash-Picture:/media/Picture"
 
       "box-fileflows_temp:/temp"
       "box-fileflows_logs:/app/Logs"
