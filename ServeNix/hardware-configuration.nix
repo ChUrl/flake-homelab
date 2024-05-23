@@ -52,6 +52,11 @@
       fsType = "nfs";
     };
 
+    "/media/TV-Music" = {
+      device = "192.168.86.20:/mnt/SG Exos Mirror 18TB/Music";
+      fsType = "nfs";
+    };
+
     # WD Blue Stripe Shares
 
     "/media/Stash-Video" = {

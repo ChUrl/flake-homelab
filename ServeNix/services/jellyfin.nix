@@ -19,6 +19,7 @@
     volumes = [
       "/media/Show:/data/tvshows"
       "/media/Movie:/data/movies"
+      "/media/TV-Music:/data/music"
 
       "jellyfin_config:/config"
     ];
