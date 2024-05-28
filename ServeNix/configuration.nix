@@ -32,7 +32,7 @@
     ./services/nginx-proxy-manager.nix
     ./services/paperless.nix
     ./services/portainer.nix
-    ./services/uptime-kuma.nix
+    # ./services/uptime-kuma.nix
     ./services/whats-up-docker.nix
     # ./services/wireguard-vps.nix # NOTE: Runs on ThinkNix
 
