@@ -16,7 +16,7 @@
     # ./services/pihole.nix
 
     # My own stuff
-    ./services/airsignal.nix
+    # ./services/airsignal.nix
     ./services/heidi.nix
     ./services/formula10.nix
 
