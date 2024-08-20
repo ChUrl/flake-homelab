@@ -38,21 +38,22 @@
 
     # MultimediArr
     ./services/bazarr.nix
-    ./services/fileflows.nix
+    # ./services/fileflows.nix
     ./services/jellyfin.nix
     ./services/jellyseerr.nix
-    ./services/jellystat.nix
+    # ./services/jellystat.nix
     ./services/prowlarr.nix
     ./services/radarr.nix
     ./services/sonarr.nix
     ./services/sabnzbd.nix
 
     # Box
-    ./services/box-fileflows.nix
+    # ./services/box-fileflows.nix
     ./services/box-hydra.nix
     ./services/box-metube.nix
     ./services/box-sabnzbd.nix
     ./services/box-stash.nix
+    ./services/box-unmanic.nix
   ];
 
   # Bootloader.
@@ -182,6 +183,7 @@
       nnn
       busybox
       glances
+      ffmpeg
       ripgrep
 
       docker-compose
