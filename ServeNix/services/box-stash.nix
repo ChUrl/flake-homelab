@@ -69,6 +69,7 @@
     volumes = [
       "/media/Stash-Picture:/data/picture"
       "/media/Stash-Video:/data/video"
+      "/media/Stash-Clips:/data/clips"
 
       "box-stash_config:/root/.stash"
       "box-stash_metadata:/metadata"
