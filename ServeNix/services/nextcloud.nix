@@ -119,7 +119,7 @@
 
     environment = {
       NEXTCLOUD_CONTAINER_NAME = "nextcloud";
-      NEXTCLOUD_CRON_MINUTE_INTERVAL = "5";
+      NEXTCLOUD_CRON_MINUTE_INTERVAL = "15";
     };
 
     extraOptions = [
