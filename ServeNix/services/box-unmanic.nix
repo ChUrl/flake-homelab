@@ -18,7 +18,7 @@
 
     volumes = [
       "/media/Stash-Video:/library/Video"
-      # "/media/Stash-Picture:/library/Picture"
+      "/media/Stash-Clips:/library/Clips"
 
       "box-unmanic_temp:/tmp/unmanic"
       "box-unmanic_config:/config"
