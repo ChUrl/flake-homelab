@@ -16,6 +16,7 @@
 
     volumes = [
       "formula10_data:/app/instance"
+      "formula10_cache:/cache"
     ];
 
     environment = {
