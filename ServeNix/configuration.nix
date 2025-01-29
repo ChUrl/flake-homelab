@@ -239,6 +239,12 @@
           # "127.0.0.1"
           # "192.168.86.25"
         ];
+
+	# Allow access via tcp socket (for homepage)
+	hosts = [
+	  "tcp://0.0.0.0:2375"
+	  "unix:///var/run/docker.sock"
+	];
       };
     };
     oci-containers.backend = "docker";
