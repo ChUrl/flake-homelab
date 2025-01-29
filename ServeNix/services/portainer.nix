@@ -4,27 +4,50 @@
   pkgs,
   ...
 }: {
-  virtualisation.oci-containers.containers.portainer = {
-    image = "portainer/portainer-ce:latest";
+  # virtualisation.oci-containers.containers.portainer = {
+  #   image = "portainer/portainer-ce:latest";
+  #   autoStart = true;
+
+  #   dependsOn = [];
+
+  #   ports = [
+  #     # "8000:8000"
+  #     # "9443:9443"
+  #   ];
+
+  #   volumes = [
+  #     "portainer_config:/data"
+
+  #     "/var/run/docker.sock:/var/run/docker.sock"
+  #   ];
+
+  #   environment = {};
+
+  #   extraOptions = [
+  #     "--net=behind-nginx"
+  #   ];
+  # };
+
+  virtualisation.oci-containers.containers.portainer-agent = {
+    image = "portainer/agent:latest";
     autoStart = true;
 
     dependsOn = [];
 
     ports = [
-      # "8000:8000"
-      # "9443:9443"
+      "9001:9001"
     ];
 
     volumes = [
-      "portainer_config:/data"
-
       "/var/run/docker.sock:/var/run/docker.sock"
+      "/var/lib/docker/volumes:/var/lib/docker/volumes"
     ];
 
     environment = {};
 
     extraOptions = [
-      "--net=behind-nginx"
+      # This container needs to be accessible from another machine inside the LAN
+      # "--net=behind-nginx"
     ];
   };
 }
