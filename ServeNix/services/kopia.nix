@@ -61,13 +61,13 @@
       "nginx_snippets:/data/nginx_snippets:ro"
       "paperless-postgres_data:/data/paperless-postgres_data:ro"
       "paperless_data:/data/paperless_data:ro"
-      "portainer_config:/data/portainer_config:ro"
+      # "portainer_config:/data/portainer_config:ro"
       # "prowlarr_config:/data/prowlarr_config:ro" # Disabled
       # "radarr_config:/data/radarr_config:ro" # Disabled
       # "sabnzbd_config:/data/sabnzbd_config:ro" # Disabled
       # "sonarr_config:/data/sonarr_config:ro" # Disabled
       # "uptime-kuma_config:/data/uptime-kuma_config:ro" # Disabled
-      "wireguard_vps_config:/data/wireguard_vps_config:ro"
+      # "wireguard_vps_config:/data/wireguard_vps_config:ro"
     ];
 
     environment = {
