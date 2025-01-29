@@ -17,7 +17,7 @@
 
     # General
     # ./services/kopia.nix
-    ./services/homepage.nix
+    # ./services/homepage.nix
     ./services/nginx-proxy-manager.nix
     ./services/portainer.nix
     ./services/whats-up-docker.nix
