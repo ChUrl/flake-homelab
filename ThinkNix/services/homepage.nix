@@ -26,7 +26,7 @@
 
     extraOptions = [
       "--net=behind-nginx"
-      "--privileged"
+      # "--privileged"
     ];
   };
 }
