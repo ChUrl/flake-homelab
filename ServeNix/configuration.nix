@@ -25,7 +25,7 @@
     ./services/gitea.nix
     ./services/gitea-runner.nix
     # ./services/homeassistant.nix # Replaced by HAOS
-    ./services/homepage.nix
+    # ./services/homepage.nix
     ./services/immich.nix
     ./services/kopia.nix
     ./services/nextcloud.nix
