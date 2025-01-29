@@ -5,7 +5,7 @@
   ...
 }: {
   virtualisation.oci-containers.containers.whats-up-docker = {
-    image = "fmartinou/whats-up-docker:latest";
+    image = "getwud/wud:latest";
     autoStart = true;
 
     dependsOn = [
