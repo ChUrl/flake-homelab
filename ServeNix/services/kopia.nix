@@ -45,7 +45,7 @@
       "gitea_data:/data/gitea_data:ro"
       "heidi_config:/data/heidi_config:ro"
       # "homeassistant_config:/data/homeassistant_config:ro" # ThinkNix
-      "homepage_config:/data/homepage_config:ro"
+      # "homepage_config:/data/homepage_config:ro"
       "immich-database_data:/data/immich-database_data:ro"
       "immich_config:/data/immich_config:ro"
       "immich_data:/data/immich_data:ro"
