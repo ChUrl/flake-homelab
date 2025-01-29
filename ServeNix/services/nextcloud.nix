@@ -102,28 +102,29 @@
     ];
   };
 
-  virtualisation.oci-containers.containers.nextcloud-cronjob = {
-    image = "rcdailey/nextcloud-cronjob";
-    autoStart = true;
+  # NOTE: Stops sometimes, use AJAX for now...
+  # virtualisation.oci-containers.containers.nextcloud-cronjob = {
+  #   image = "rcdailey/nextcloud-cronjob";
+  #   autoStart = true;
 
-    dependsOn = [
-      "nextcloud"
-    ];
+  #   dependsOn = [
+  #     "nextcloud"
+  #   ];
 
-    ports = [];
+  #   ports = [];
 
-    volumes = [
-      "/etc/localtime:/etc/localtime:ro"
-      "/var/run/docker.sock:/var/run/docker.sock:ro"
-    ];
+  #   volumes = [
+  #     "/etc/localtime:/etc/localtime:ro"
+  #     "/var/run/docker.sock:/var/run/docker.sock:ro"
+  #   ];
 
-    environment = {
-      NEXTCLOUD_CONTAINER_NAME = "nextcloud";
-      NEXTCLOUD_CRON_MINUTE_INTERVAL = "15";
-    };
+  #   environment = {
+  #     NEXTCLOUD_CONTAINER_NAME = "nextcloud";
+  #     NEXTCLOUD_CRON_MINUTE_INTERVAL = "15";
+  #   };
 
-    extraOptions = [
-      "--net=behind-nginx"
-    ];
-  };
+  #   extraOptions = [
+  #     "--net=behind-nginx"
+  #   ];
+  # };
 }
