@@ -145,7 +145,7 @@
         #       - Disabling this prevents containers from having internet connection. DNS issue?
         # ${dockercli} network create -o "com.docker.network.bridge.enable_ip_masquerade"="false" ${network}
 
-        ${dockercli} network create --ipv6 --gateway="fd00::5" --subnet="2000::/80" ${network}
+        ${dockercli} network create --ipv6 --gateway="2000::1" --subnet="2000::/80" ${network}
       else
         echo "${network} already exists in docker"
       fi
