@@ -19,6 +19,7 @@
     # ./services/airsignal.nix
     ./services/heidi.nix
     ./services/formula10.nix
+    ./services/formula11.nix
 
     # General
     ./services/authelia.nix
