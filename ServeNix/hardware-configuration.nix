@@ -47,11 +47,6 @@
       fsType = "nfs";
     };
 
-    "/media/TV-Usenet" = {
-      device = "192.168.86.20:/mnt/SG Exos Mirror 18TB/Usenet";
-      fsType = "nfs";
-    };
-
     "/media/TV-Music" = {
       device = "192.168.86.20:/mnt/SG Exos Mirror 18TB/Music";
       fsType = "nfs";
@@ -71,11 +66,6 @@
 
     "/media/Stash-Clips" = {
       device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Clips";
-      fsType = "nfs";
-    };
-
-    "/media/Stash-Usenet" = {
-      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Usenet";
       fsType = "nfs";
     };
   };
