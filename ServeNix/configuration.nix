@@ -110,7 +110,7 @@
 
       ipv6.addresses = [
         {
-	  address = "fd00::25";
+	  address = "fd00::19"; # 25 in hex
 	  prefixLength = 120;
 	}
       ];
@@ -123,7 +123,7 @@
       # "127.0.0.1"
       # "8.8.8.8"
       "192.168.86.26"
-      "fd00::26"
+      "fd00::1a" # 26 in hex
     ];
   };
 
