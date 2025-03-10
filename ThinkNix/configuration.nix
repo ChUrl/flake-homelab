@@ -110,9 +110,9 @@
       if [ -z "$check" ]; then
         # TODO: Disable IP masquerading to show individual containers in AdGuard/Pi-Hole
         #       - Disabling this prevents containers from having internet connection. DNS issue?
-        # ${dockercli} network create -o "com.docker.network.bridge.enable_ip_masquerade"="false" -o "enable_ipv6"="true" ${network}
+        # ${dockercli} network create -o "com.docker.network.bridge.enable_ip_masquerade"="false" ${network}
 
-        ${dockercli} network create -o "enable_ipv6"="true" ${network}
+        ${dockercli} network create --ipv6 --gateway="fd00::5" --subnet="2000::/80" ${network}
       else
         echo "${network} already exists in docker"
       fi
