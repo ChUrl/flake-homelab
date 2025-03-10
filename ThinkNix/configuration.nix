@@ -66,13 +66,29 @@
     # Enable networking
     networkmanager.enable = true;
 
-    interfaces.ens18.ipv4.addresses = [{
-      address = "192.168.86.26";
-      prefixLength = 24;
-    }];
+    interfaces.ens18 = {
+      ipv4.addresses = [
+        {
+          address = "192.168.86.26";
+          prefixLength = 24;
+        }
+      ];
+
+      ipv6.addresses = [
+        {
+          address = "fd00::26";
+	  prefixLength = 120;
+        }
+      ];
+    };
+
     defaultGateway = "192.168.86.5";
+    defaultGateway6 = "fd00::5";
+
     nameservers = [
       "127.0.0.1"
+      "::1"
+
       # "192.168.86.25"
       # "8.8.8.8"
     ];
@@ -94,9 +110,9 @@
       if [ -z "$check" ]; then
         # TODO: Disable IP masquerading to show individual containers in AdGuard/Pi-Hole
         #       - Disabling this prevents containers from having internet connection. DNS issue?
-        # ${dockercli} network create -o "com.docker.network.bridge.enable_ip_masquerade"="false" ${network}
+        # ${dockercli} network create -o "com.docker.network.bridge.enable_ip_masquerade"="false" -o "enable_ipv6"="true" ${network}
 
-        ${dockercli} network create ${network}
+        ${dockercli} network create -o "enable_ipv6"="true" ${network}
       else
         echo "${network} already exists in docker"
       fi
@@ -197,10 +213,14 @@
       #   setSocketVariable = true;
       # };
       daemon.settings = {
+        ipv6 = true;
+        fixed-cidr-v6 = "2001::/80";
+
         dns = [
           # TODO: Does this circumvent my DNS for each container?
           #       It might improve gitea actions though...
           "8.8.8.8"
+	  "2001:4860:4860::8888"
 
           # TODO: Might prevent containers from having DNS?
           # "127.0.0.1"
