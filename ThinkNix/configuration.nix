@@ -76,7 +76,7 @@
 
       ipv6.addresses = [
         {
-          address = "fd00::26";
+          address = "fd00::1a"; # 26 in hex
 	  prefixLength = 120;
         }
       ];
