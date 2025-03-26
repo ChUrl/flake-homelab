@@ -145,7 +145,8 @@
         #       - Disabling this prevents containers from having internet connection. DNS issue?
         # ${dockercli} network create -o "com.docker.network.bridge.enable_ip_masquerade"="false" ${network}
 
-        ${dockercli} network create --ipv6 --gateway="2000::1" --subnet="2000::/80" ${network}
+        # ${dockercli} network create --ipv6 --gateway="2000::1" --subnet="2000::/80" ${network}
+        ${dockercli} network create ${network}
       else
         echo "${network} already exists in docker"
       fi
@@ -247,14 +248,14 @@
       #   setSocketVariable = true;
       # };
       daemon.settings = {
-        ipv6 = true;
-	fixed-cidr-v6 = "2001::/80";
+        # ipv6 = true; # TODO: Resulted in slowdowns for some services?
+	# fixed-cidr-v6 = "2001::/80";
 
         dns = [
           # TODO: Does this circumvent my DNS for each container?
           #       It might improve gitea actions though...
           "8.8.8.8"
-	  "2001:4860:4860::8888"
+	  # "2001:4860:4860::8888"
 
           # TODO: Might prevent containers from having DNS?
           # "127.0.0.1"
