@@ -5,7 +5,7 @@
   ...
 }: {
   virtualisation.oci-containers.containers.immich-database = {
-    image = "tensorchord/pgvecto-rs:pg15-v0.2.0";
+    image = "ghcr.io/immich-app/postgres:15-vectorchord0.3.0-pgvectors0.2.0";
     autoStart = true;
 
     dependsOn = [];
