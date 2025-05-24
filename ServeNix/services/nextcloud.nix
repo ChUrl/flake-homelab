@@ -102,29 +102,25 @@
     ];
   };
 
-  # NOTE: Stops sometimes, use AJAX for now...
-  # virtualisation.oci-containers.containers.nextcloud-cronjob = {
-  #   image = "rcdailey/nextcloud-cronjob";
-  #   autoStart = true;
+  systemd.services.nextcloud-cron = {
+    enable = true;
+    description = "Nextcloud Cron Job";
+    
+    serviceConfig = {
+      ExecStart = "${pkgs.docker}/bin/docker exec -u www-data nextcloud /usr/local/bin/php -f /var/www/html/cron.php";
+    };
+  };
 
-  #   dependsOn = [
-  #     "nextcloud"
-  #   ];
+  systemd.timers.nextcloud-cron = {
+    enable = true;
+    description = "Nextcloud Cron Job";
 
-  #   ports = [];
+    timerConfig = {
+      OnBootSec = "5min";
+      OnUnitActiveSec = "5min";
+      Unit = "nextcloud-cron.service";
+    };
 
-  #   volumes = [
-  #     "/etc/localtime:/etc/localtime:ro"
-  #     "/var/run/docker.sock:/var/run/docker.sock:ro"
-  #   ];
-
-  #   environment = {
-  #     NEXTCLOUD_CONTAINER_NAME = "nextcloud";
-  #     NEXTCLOUD_CRON_MINUTE_INTERVAL = "15";
-  #   };
-
-  #   extraOptions = [
-  #     "--net=behind-nginx"
-  #   ];
-  # };
+    wantedBy = ["timers.target"];
+  };
 }
