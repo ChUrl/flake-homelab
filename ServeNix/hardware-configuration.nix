@@ -51,23 +51,6 @@
       device = "192.168.86.20:/mnt/SG Exos Mirror 18TB/Music";
       fsType = "nfs";
     };
-
-    # WD Blue Stripe Shares
-
-    "/media/Stash-Video" = {
-      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Video";
-      fsType = "nfs";
-    };
-
-    "/media/Stash-Picture" = {
-      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Picture";
-      fsType = "nfs";
-    };
-
-    "/media/Stash-Clips" = {
-      device = "192.168.86.20:/mnt/WD Blue Stripe 2T/Clips";
-      fsType = "nfs";
-    };
   };
 
   swapDevices = [];
